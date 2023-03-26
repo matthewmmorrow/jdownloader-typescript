@@ -1,0 +1,18 @@
+{
+  "name": "jdownloader-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx tsc",
+    "build": "npx webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MatthewMMorrow",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack-cli": "^5.0.1"
+  }
+}
