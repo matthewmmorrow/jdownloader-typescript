@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "npx tsc",
     "build": "npx webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-dist-win": "copy .\\dist\\jdownloader.js \"c:\\Program Files\\JDownloader\""
   },
   "author": "MatthewMMorrow",
   "license": "MIT",

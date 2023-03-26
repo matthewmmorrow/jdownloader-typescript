@@ -41,7 +41,7 @@ In JDownloader, in the `Settings` tab, select the `Event Scripter` item from the
 
 Click `Add` to create a new event script. Give it a name and choose the appropriate trigger. Then click `Edit`. 
 
-To include the built scripts, the first line of the script will use the `require(string)` function to load the file from disk. One tip is to copy the built script to the JDownloader directory, but referencing the file directly from the project `dist` directory would also work.
+To include the built scripts, the first line of the script will use the `require(string)` function to load the file from disk. One tip is to copy the built script to the JDownloader directory, but referencing the file directly from the project `dist` directory would also work. On Windows, the command `npm run copy-dist-win` will copy the output file to the JDownloader directory.
 
 Additional lines in the script can reference functions fro the built scripts which will be under the `jdownloader` global object.
 
@@ -55,7 +55,7 @@ jdownloader.saveHistoryDownloadStoppedEvent();
 
 *Note: if you are using Windows which uses "\\" characters in paths, they must be doubled.*
 
-The first time the script runs, a prompt asking for permission to execute the local file may display. Click `allow` go give access after verifying the script is correct.
+The first time the script runs, a prompt asking for permission to execute the local file may display. Click `allow` go give access after verifying the script is correct. There may be 2 boxes. If the script is marked a "synchronous" then JDownloader may lock up so it is recommended to run the script once with the check box unchecked.
 ![Event Scripter permissions required!](warning.png)
 
 ## Examples and Reference
@@ -67,6 +67,7 @@ Some files included in this repository are examples and some are necessary for p
 - `eventTriggers.ts` - Strongly-typed trigger event property object. See section on `getEventTriggerProperties`
 - `prioritizePackages.ts` - Example of a button trigger `prioritizePackagesButtonEvent` and interval trigger `prioritizePackagesIntervalEvent` which execute the same function to prioritize packages with smaller unfinished links.
 - `saveHistory.ts` - Example of a context menu trigger `saveHistoryContextMenuEvent` and download stopped trigger `saveHistoryDownloadStoppedEvent` which use the same function to save links to history files based on hoster.
+- `markDuplicates.ts` - Example of a new linke added trigger `markDuplicatesNewLinkEvent` which uses the output from the save history events to add comments and disable added links which were already downloaded.
 
 ### Different event trigger types - `getEventTriggerProperties`
 Since different event trigger types have different configurable options and properties, there needs to be a way to get the correct properties in a strongly-typed manner. This is done with a call to `getEventTriggerProperties` which takes the expected property type. This returns the global trigger properties in a single typed object. The list of types can be found in `eventTriggers.ts`
