@@ -72,12 +72,13 @@ export function getEventTriggerProperties<T extends EventTriggerProperties>(type
     safeRename("buttonName", "name");
     safeRename("extractionEvent", "event");
     safeRename("remoteEvent", "event");
-    safeRename("downloadLink", "downloadLink");
-    safeRename("packagizerLink", "packagizerLink");
+    safeRename("downloadLink", "link");
+    safeRename("packagizerLink", "link");
 
     try {
         return new type();
-    } catch {
+    } catch (ex) {
+        log(["Failed to create properties due to error.", (ex as any).message]);
         return undefined;
     }
 }
